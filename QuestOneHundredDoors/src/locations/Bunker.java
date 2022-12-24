@@ -1,27 +1,29 @@
 package locations;
 
 import characters.Personages;
+import system.Random;
 
 import java.util.Scanner;
 
-public class Bunker {
+public class Bunker extends Random{
     //first floor
     public static void firstDoor() {
         // не хватает сил открыть
         System.out.println("Мне не хватает сил открыть данную дверь, надо выбрать другую.");
+        System.out.println();
     }
 
     public static void secondDoor() {
         // дальше проходит
         System.out.println("Я начал открывать дверь, она очень скрипела.\n" +
-                " Я всё-таки смог открыть эту дверь и увдиел тёмный коридор.\n" +
+                "Я всё-таки смог открыть эту дверь и увдиел тёмный коридор.\n" +
                 "Решил пойти в темноту, через страх. Дошёл до места, где моргал свет и снова увидел 3 двери.");
     }
 
     public static void threeDoor() {
         // дальше проходит
         System.out.println("Я начал открывать дверь, она очень скрипела.\n" +
-                " Я всё-таки смог открыть эту дверь и увдиел тёмный коридор.\n" +
+                "Я всё-таки смог открыть эту дверь и увдиел тёмный коридор.\n" +
                 "Решил пойти в темноту, через страх. Дошёл до места, где моргал свет и снова увидел 3 двери.");
     }
 
@@ -39,7 +41,7 @@ public class Bunker {
         switch (firstChoise) {
             case 1:
                 firstDoor();
-                System.out.println("Выберите одну из 3 дверей.\n" +
+                System.out.println("Выберите одну из 2 дверей.\n" +
                         "1.SecondDoor\n2.ThreeDoor.");
                 System.out.print("Your choise: ");
 
@@ -75,6 +77,7 @@ public class Bunker {
         // открыто, но после двери обвал
         System.out.println("Я начал открывать дверь и услышал, как начали падать камни с потолка.\n" +
                 "Я не решился продолжить дальше открывать эту дверь.");
+        System.out.println();
     }
 
     public static void fiveDoor() {
@@ -87,7 +90,8 @@ public class Bunker {
         // смерть
         System.out.println("Я открыл дверь и там ничего не видно.\n" +
                 "Решил пройтись вперёд, но через 2 метра, я был уже в свободном падении.\n" +
-                "Пролетел я так секунды 3 (3 секунд +- 7 этажей)");
+                "Пролетел я так секунды 3 (3 секунды +- 7 этажей)");
+        System.out.println();
     }
 
     public static void secondFloor() {
@@ -99,14 +103,18 @@ public class Bunker {
 
         int firstChoise = scan.nextInt();
 
+        System.out.println();
+
         switch (firstChoise) {
             case 1:
                 fourDoor();
-                System.out.println("Выберите одну из 3 дверей.\n" +
+                System.out.println("Выберите одну из 2 дверей.\n" +
                         "1.FiveDoor\n2.SixDoor.");
                 System.out.print("Your choise: ");
 
                 int secondChoise = scan.nextInt();
+
+                System.out.println();
 
                 switch (secondChoise) {
                     case 1:
@@ -126,6 +134,7 @@ public class Bunker {
                 break;
             case 3:
                 sixDoor();
+                System.exit(0);
                 break;
             default:
                 System.err.println("Такой двери не существует.");
@@ -159,14 +168,18 @@ public class Bunker {
 
         int firstChoise = scan.nextInt();
 
+        System.out.println();
+
         switch (firstChoise) {
             case 1:
                 sevenDoor();
-                System.out.println("Выберите одну из 3 дверей.\n" +
+                System.out.println("Выберите одну из 2 дверей.\n" +
                         "1.EightDoor\n2.NineDoor.");
                 System.out.print("Your choise: ");
 
                 int secondChoise = scan.nextInt();
+
+                System.out.println();
 
                 switch (secondChoise) {
                     case 1:
@@ -178,7 +191,7 @@ public class Bunker {
                         System.out.println("Введите код составленный из чисел 6,3 и 9.\n" +
                                 "0. Для выхода из взлома замка.");
 
-                        codeSecondFloor(); //code 936
+                        codeThreeFloor(); //code 936
                         break;
                     default:
                         System.err.println("Такой двери не существует.");
@@ -195,7 +208,7 @@ public class Bunker {
                 System.out.println("Введите код составленный из чисел 6,3 и 9.\n" +
                         "0. Для выхода из взлома замка.");
 
-                codeSecondFloor(); //code 936
+                codeThreeFloor(); //code 936
                 break;
             default:
                 System.err.println("Такой двери не существует.");
@@ -203,7 +216,7 @@ public class Bunker {
         }
     }
 
-    public static void codeSecondFloor(){
+    public static void codeThreeFloor(){
         Scanner scanner = new Scanner(System.in);
 
         int pass = scanner.nextInt();
@@ -217,7 +230,7 @@ public class Bunker {
                 break;
             default:
                 System.out.println("Пароль не верен!");
-                codeSecondFloor();
+                codeThreeFloor();
         }
     }
 
@@ -225,50 +238,43 @@ public class Bunker {
     public static void tenDoor() {
         // дальше проходит или закрыто( рандом )  (пока что закрыто 100%)
 
-        System.out.println("Я попытался открыть дверь, но она не открывалась.");
+        Random random = new Random();
 
-         //int fromTheNumber = 1;
-         //int upToTheNumber = 2;
+        int randomNumber = random.randomNumberBunkerTenDoor;
 
-         //int randomNumber = fromTheNumber + (int) (Math.random() * upToTheNumber);
+        System.out.println("Проверка случайного числа: " + randomNumber);
 
-        //System.out.println("Проверка случайного числа" + randomNumber);
-
-        //switch (randomNumber) {
-           // case 1:
+        switch (randomNumber) {
+            case 1:
                 // дальше проходит
-                //System.out.println("Я начал открывать эту дверь, она открылась с трудом," +
-                //        " ведь она не использовалсь много лет.\n" +
-                 //       " За дверью находился затопленный коридор, но через весь коридор" +
-                 //       " лежали доски по которым я и прошёл.\n" +
-                 //       " В конце коридора наткнулся на 3 двери и 2 из них завалены.");
-                //break;
-           // case 2:
-                // закрыто
-           //     System.out.println("Я попытался открыть дверь, но она не открывалась.");
-           //     break;
-           // default:
-            //    System.err.println("Не повезло, выпало не то число.");
-            //    tenDoor();
-        //}
+                System.out.println("Я начал открывать эту дверь, она открылась с трудом," +
+                        " ведь она не использовалсь много лет.\n" +
+                        "За дверью находился затопленный коридор, но через весь коридор" +
+                        " лежали доски по которым я и прошёл.\n" +
+                        "В конце коридора наткнулся на 3 двери и 2 из них завалены.");
+                break;
+            default:
+                System.out.println("Я попытался открыть дверь, но она не открывалась.");
+                break;
+        }
     }
 
     public static void elevenDoor() {
         // дальше проходит
         System.out.println("Я начал открывать эту дверь, она открылась с трудом," +
                 " ведь она не использовалсь много лет.\n" +
-                " За дверью находился затопленный коридор, но через весь коридор" +
+                "За дверью находился затопленный коридор, но через весь коридор" +
                 " лежали доски по которым я и прошёл.\n" +
-                " В конце коридора наткнулся на 3 двери и 2 из них завалены.");
+                "В конце коридора наткнулся на 3 двери и 2 из них завалены.");
     }
 
     public static void twelveDoor() {
         // дальше проходит
         System.out.println("Я начал открывать эту дверь, она открылась с трудом," +
                 " ведь она не использовалсь много лет.\n" +
-                " За дверью находился затопленный коридор, но через весь коридор" +
+                "За дверью находился затопленный коридор, но через весь коридор" +
                 " лежали доски по которым я и прошёл.\n" +
-                " В конце коридора наткнулся на 3 двери и 2 из них завалены.");
+                "В конце коридора наткнулся на 3 двери и 2 из них завалены.");
     }
 
     public static void fourFloor() {
@@ -280,28 +286,40 @@ public class Bunker {
 
         int firstChoise = scan.nextInt();
 
+        System.out.println();
+
         switch (firstChoise) {
             case 1:
                 tenDoor();
 
-                System.out.println("Выберите одну из 3 дверей.\n" +
-                        "1.ElevenDoor\n2.TwelveDoor.");
-                System.out.print("Your choise: ");
+                Random random = new Random();
+                int randomNumber = random.randomNumberBunkerTenDoor;
 
-                int secondChoise = scan.nextInt();
-
-                switch (secondChoise) {
+                switch (randomNumber){
                     case 1:
-                        elevenDoor();
-                        break;
-                    case 2:
-                        twelveDoor();
                         break;
                     default:
-                        System.err.println("Такой двери не существует.");
-                        break;
-                }
+                        System.out.println("Выберите одну из 2 дверей.\n" +
+                                "1.ElevenDoor\n2.TwelveDoor.");
+                        System.out.print("Your choise: ");
 
+                        int secondChoise = scan.nextInt();
+
+                        System.out.println();
+
+                        switch (secondChoise) {
+                            case 1:
+                                elevenDoor();
+                                break;
+                            case 2:
+                                twelveDoor();
+                                break;
+                            default:
+                                System.err.println("Такой двери не существует.");
+                                break;
+                        }
+                    break;
+                }
                 break;
             case 2:
                 elevenDoor();
@@ -323,9 +341,9 @@ public class Bunker {
 
     public static void fourteenDoor() {
         // код 173
-        System.out.println("Я подошёл в двери и снова увидел замок, " +
-                "и выбора у меня нет, я вынужден взламывать замок.\n" +
-                " Посмотрев внимательнее я увидел на двери выцарапанные 3 числа 7,1 и 3.");
+        System.out.println("Я подошёл в двери и снова увидел замок," +
+                " и выбора у меня нет, я вынужден взламывать замок.\n" +
+                "Посмотрев внимательнее я увидел на двери выцарапанные 3 числа 7,1 и 3.");
     }
 
     public static void fifteenDoor() {
@@ -335,7 +353,101 @@ public class Bunker {
 
     public static void fiveFloor() {
         // closed
-        //code 173
-        //closed
+        // code 173
+        // closed
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Выберите одну из 3 дверей.\n" +
+                "1.ThirteenDoor\n2.FourteenDoor\n3.FifteenDoor.");
+        System.out.print("Your choise: ");
+
+        int firstChoise = scan.nextInt();
+
+        System.out.println();
+
+        switch (firstChoise) {
+            case 1:
+                thirteenDoor();
+                System.out.println("Выберите одну дверь.\n" +
+                        "1.FourteenDoor");
+                System.out.print("Your choise: ");
+
+                int secondChoise = scan.nextInt();
+
+                System.out.println();
+
+                switch (secondChoise) {
+                    case 1:
+                        fourteenDoor();
+                        break;
+                    default:
+                        System.err.println("Такой двери не существует.");
+                        break;
+                }
+
+                break;
+            case 2:
+                fourteenDoor();
+
+                System.out.println("Введите код составленный из чисел 7,1 и 3.");
+
+                codeFiveFloor(); //code 173
+                break;
+            case 3:
+                fifteenDoor();
+
+                System.out.println("Выберите одну дверь.\n" +
+                        "1.FourteenDoor");
+                System.out.print("Your choise: ");
+
+                int threeChoise = scan.nextInt();
+
+                System.out.println();
+
+                switch (threeChoise) {
+                    case 1:
+                        fourteenDoor();
+                        break;
+                    default:
+                        System.err.println("Такой двери не существует.");
+                        break;
+                }
+                break;
+            default:
+                System.err.println("Такой двери не существует.");
+                break;
+        }
+    }
+
+    public static void codeFiveFloor(){
+        Scanner scanner = new Scanner(System.in);
+
+        int pass = scanner.nextInt();
+
+        switch (pass) {
+            case 173:
+                System.out.println("Вы угадали пароль!");
+                break;
+            case 0:
+                fiveFloor();
+                break;
+            default:
+                System.out.println("Пароль не верен!");
+                codeFiveFloor();
+        }
+    }
+
+    public static void callingVoidsBunker(){
+        firstFloor();
+        System.out.println();
+        secondFloor();
+        System.out.println();
+        threeFloor();
+        System.out.println();
+        fourFloor();
+        System.out.println();
+        fiveFloor();
+        System.out.println();
     }
 }
