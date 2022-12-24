@@ -2,6 +2,7 @@ package locations;
 
 import system.Random;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Bunker {
@@ -66,7 +67,7 @@ public class Bunker {
                 "На обратной стороне замка я увидел что-то на царапано какие-то цифры их было три цифры 6,3 и 9.");
     }
 
-    public static void codeThreeFloor() {
+    public static void codeThreeFloor() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
         int pass = scanner.nextInt();
