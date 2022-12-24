@@ -1,9 +1,6 @@
 package locations;
 
-import characters.Personages;
 import system.Random;
-
-import java.util.Scanner;
 
 public class School {
 
@@ -38,123 +35,6 @@ public class School {
                 break;
             default:// закрыта
                 System.out.println("Я дёрнул пару раз дверь и она не открылась. Я решил выбрать другую дверь.");
-                break;
-        }
-    }
-
-    public static void firstFloor(){
-        Personages.schoolDescription();
-
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("Выберите одну из 3 дверей.\n" +
-                "1.FirstDoor\n2.SecondDoor\n3.ThreeDoor.");
-        System.out.print("Your choise: ");
-
-        int firstChoise = scan.nextInt();
-
-        System.out.println();
-
-        switch (firstChoise) {
-            case 1:
-                firstDoor();
-                break;
-            case 2:
-                secondDoor();
-
-                System.out.println("Выберите одну из 2 дверей.\n" +
-                        "1.FirstDoor\n2.ThreeDoor.");
-                System.out.print("Your choise: ");
-
-                int secondChoise = scan.nextInt();
-
-                switch (secondChoise) {
-                    case 1:
-                        firstDoor();
-                        break;
-                    case 2:
-                        threeDoor();
-
-                        Random random = new Random();
-                        int randomNumber = random.randomNumberClosedOrOpened;
-
-                        switch (randomNumber){
-                            case 1:
-                                break;
-                            default:
-                                System.out.println("Выберите одну дверь.\n" +
-                                        "1.FirstDoor\n.");
-                                System.out.print("Your choise: ");
-
-                                int threeChoise = scan.nextInt();
-
-                                System.out.println();
-
-                                switch (threeChoise) {
-                                    case 1:
-                                        firstDoor();
-                                        break;
-                                    default:
-                                        System.err.println("Такой двери не существует.");
-                                        break;
-                                }
-                                break;
-                        }
-                        break;
-                    default:
-                        System.err.println("Такой двери не существует.");
-                        break;
-                }
-                break;
-            case 3:
-                threeDoor();
-
-                Random random = new Random();
-                int randomNumber = random.randomNumberClosedOrOpened;
-
-                switch (randomNumber){
-                    case 1:
-                        break;
-                    default:
-                        System.out.println("Выберите одну из 2 дверей.\n" +
-                                "1.FirstDoor\n2.SecondDoor.");
-                        System.out.print("Your choise: ");
-
-                        int threeChoise = scan.nextInt();
-
-                        System.out.println();
-
-                        switch (threeChoise) {
-                            case 1:
-                                firstDoor();
-                                break;
-                            case 2:
-                                secondDoor();
-
-                                System.out.println("Выберите одну дверь.\n" +
-                                        "1.FirstDoor.");
-                                System.out.print("Your choise: ");
-
-                                int fourChoise = scan.nextInt();
-
-                                switch (fourChoise) {
-                                    case 1:
-                                        firstDoor();
-                                        break;
-                                    default:
-                                        System.err.println("Такой двери не существует.");
-                                        break;
-                                }
-                                break;
-                            default:
-                                System.err.println("Такой двери не существует.");
-                                break;
-                        }
-                        break;
-                }
-                break;
-            default:
-                System.err.println("Такой двери не существует.");
                 break;
         }
     }
@@ -213,11 +93,18 @@ public class School {
     }
     public static void nineDoor(){
         // дальше проходит
+        System.out.println("Я открыл дверь и решил зайти в неё, но вижу, что там есть в дали дверь и решаюсь пойти туда" +
+                ", и дверь резко закрывается.\n" +
+                "Я решаюсь пройти вперёд до двери и решаюсь её открыть, когда я открыл её, то я увидел ещё один коридор" +
+                "и опять вижу в дали дверь.\n" +
+                "Я пошёл дальше к двери и внезапно дверь сзади закрылась, но я продолжал идти вперёд и открываю дверь, " +
+                "и вижу передо мной 3 двери.");
     }
 
     //four floor
     public static void tenDoor(){
         // дальше проходит
+        System.out.println("Я открываю дверь и вижу проход в другую дверь и там опять ждёт меня три двери.");
     }
     public static void elevenDoor(){
         // смерть
@@ -227,18 +114,29 @@ public class School {
     }
     public static void twelveDoor(){
         // дальше проходит
+        System.out.println("Я открываю дверь и вижу проход в другую дверь и там опять ждёт меня три двери.");
     }
 
     //five floor
     public static void thirteenDoor(){
         // закрыто
-        System.out.println("Я увидел повешенный замок на двери и не стал пытаться открыть. Надо выбрать другую дверь");
+        System.out.println("Я увидел повешенный замок (для которого нужен ключ) на двери и не стал пытаться открыть." +
+                " Надо выбрать другую дверь");
     }
     public static void fourteenDoor(){
         // дальше проходит
+        System.out.println("Я начал открывать эту дверь с мыслью, что это последняя дверь. Я уидел пожарную лстницу вниз.\n" +
+                "Я решился спустится вниз по лестнице. Я спускался по ощущениям этажа 2." +
+                " Я всё-таки встал на пол и нашёл дверь, а над дверью есть табличка  \"Выход\".");
     }
     public static void fifteenDoor(){
         // закрыто
-        System.out.println("Я увидел повешенный замок на двери и не стал пытаться открыть. Надо выбрать другую дверь");
+        System.out.println("Я увидел повешенный замок (для которого нужен ключ) на двери и не стал пытаться открыть." +
+                " Надо выбрать другую дверь");
+    }
+
+    public static void end(){
+        System.out.println("Я открыл эту дверь и увидел улицу." +
+                " Я решил посмотреть на часы и увидел, что они возобновили ход и время \"18:31\".");
     }
 }
