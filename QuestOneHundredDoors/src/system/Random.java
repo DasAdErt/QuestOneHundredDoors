@@ -2,10 +2,15 @@ package system;
 
 public class Random {
 
-    int fromTheNumberBunker = 1;
-    int upToTheNumberBunker = 2;
+    int fromTheNumberClosedOrOpened = 1;
+    int upToTheNumberClosedOrOpened = 2;
 
-    public int randomNumberBunkerTenDoor = fromTheNumberBunker + (int) (Math.random() * upToTheNumberBunker);
+    public int randomNumberClosedOrOpened = fromTheNumberClosedOrOpened + (int) (Math.random() * upToTheNumberClosedOrOpened);
+
+    int fromTheNumberClosedOrDeath = 1;
+    int upToTheNumberClosedOrDeath = 2;
+
+    public int randomNumberClosedOrDeath = fromTheNumberClosedOrDeath + (int) (Math.random() * upToTheNumberClosedOrDeath);
 
     int fromTheNumberGame = 1;
     int upToTheNumberGame = 3;

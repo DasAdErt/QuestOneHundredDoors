@@ -5,7 +5,7 @@ import system.Random;
 
 import java.util.Scanner;
 
-public class Bunker extends Random{
+public class Bunker {
     //first floor
     public static void firstDoor() {
         // не хватает сил открыть
@@ -37,6 +37,8 @@ public class Bunker extends Random{
         System.out.print("Your choise: ");
 
         int firstChoise = scan.nextInt();
+
+        System.out.println();
 
         switch (firstChoise) {
             case 1:
@@ -92,6 +94,7 @@ public class Bunker extends Random{
                 "Решил пройтись вперёд, но через 2 метра, я был уже в свободном падении.\n" +
                 "Пролетел я так секунды 3 (3 секунды +- 7 этажей)");
         System.out.println();
+        System.err.println("Вы умерли!");
     }
 
     public static void secondFloor() {
@@ -189,7 +192,7 @@ public class Bunker extends Random{
                         nineDoor();
 
                         System.out.println("Введите код составленный из чисел 6,3 и 9.\n" +
-                                "0. Для выхода из взлома замка.");
+                                "0. Для выхода из взлома замка и выбрать другую дверь.");
 
                         codeThreeFloor(); //code 936
                         break;
@@ -216,7 +219,7 @@ public class Bunker extends Random{
         }
     }
 
-    public static void codeThreeFloor(){
+    public static void codeThreeFloor() {
         Scanner scanner = new Scanner(System.in);
 
         int pass = scanner.nextInt();
@@ -229,20 +232,18 @@ public class Bunker extends Random{
                 secondFloor();
                 break;
             default:
-                System.out.println("Пароль не верен!");
+                System.err.println("Пароль не верен!");
                 codeThreeFloor();
         }
     }
 
     //four floor
     public static void tenDoor() {
-        // дальше проходит или закрыто( рандом )  (пока что закрыто 100%)
+        // дальше проходит или закрыто( рандом )
 
         Random random = new Random();
 
-        int randomNumber = random.randomNumberBunkerTenDoor;
-
-        System.out.println("Проверка случайного числа: " + randomNumber);
+        int randomNumber = random.randomNumberClosedOrOpened;
 
         switch (randomNumber) {
             case 1:
@@ -253,7 +254,7 @@ public class Bunker extends Random{
                         " лежали доски по которым я и прошёл.\n" +
                         "В конце коридора наткнулся на 3 двери и 2 из них завалены.");
                 break;
-            default:
+            default:// закрыта
                 System.out.println("Я попытался открыть дверь, но она не открывалась.");
                 break;
         }
@@ -293,12 +294,10 @@ public class Bunker extends Random{
                 tenDoor();
 
                 Random random = new Random();
-                int randomNumber = random.randomNumberBunkerTenDoor;
+                int randomNumber = random.randomNumberClosedOrOpened;
 
-                switch (randomNumber){
+                switch (randomNumber) {
                     case 1:
-                        break;
-                    default:
                         System.out.println("Выберите одну из 2 дверей.\n" +
                                 "1.ElevenDoor\n2.TwelveDoor.");
                         System.out.print("Your choise: ");
@@ -318,7 +317,9 @@ public class Bunker extends Random{
                                 System.err.println("Такой двери не существует.");
                                 break;
                         }
-                    break;
+                        break;
+                    default:
+                        break;
                 }
                 break;
             case 2:
@@ -352,9 +353,6 @@ public class Bunker extends Random{
     }
 
     public static void fiveFloor() {
-        // closed
-        // code 173
-        // closed
 
         Scanner scan = new Scanner(System.in);
 
@@ -420,7 +418,11 @@ public class Bunker extends Random{
         }
     }
 
-    public static void codeFiveFloor(){
+    public static void end(){
+        System.out.println("Ура! Я смог взломать последнюю дверь и выйти на ружу, как же я давно не был тут!");
+    }
+
+    public static void codeFiveFloor() {
         Scanner scanner = new Scanner(System.in);
 
         int pass = scanner.nextInt();
@@ -429,16 +431,13 @@ public class Bunker extends Random{
             case 173:
                 System.out.println("Вы угадали пароль!");
                 break;
-            case 0:
-                fiveFloor();
-                break;
             default:
-                System.out.println("Пароль не верен!");
+                System.err.println("Пароль не верен!");
                 codeFiveFloor();
         }
     }
 
-    public static void callingVoidsBunker(){
+    public static void callingVoidsBunker() {
         firstFloor();
         System.out.println();
         secondFloor();
@@ -448,6 +447,8 @@ public class Bunker extends Random{
         fourFloor();
         System.out.println();
         fiveFloor();
+        System.out.println();
+        end();
         System.out.println();
     }
 }
